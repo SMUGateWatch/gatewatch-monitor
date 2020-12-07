@@ -7,23 +7,13 @@ import socket from '../utils/socket.js'
 export default function Index(){    
     const [eData, setEntranceData] = useState({})
     const [exData, setExitData] = useState({})
-    useEffect(()=>{  
-        socket.open()  
-        socket.on("entranceGate", (data)=>{
-            const dataParsed = JSON.parse(data)
-            setEntranceData(dataParsed)
-        })
-        socket.on("exitGate", (data)=>{
-            const dataParsed = JSON.parse(data)
-            setExitData(dataParsed)
-        })
-    },[])
+    
     return(
     <div>
     <Layout PageTitle="Dashboard">
             <div id="header" className={localStyle.ContentHead}>
                  <h1>Dashboard</h1>
-                 <input id="manual-lift" type="button" name="manual-lift" value="Fullscreen" onClick={()=>sendMessage()}/>
+                 <input id="manual-lift" type="button" name="manual-lift" value="Fullscreen"/>
              </div>
              <div id="content" className={localStyle.ContentContainer}>
                  <div id="subcontent1" className={localStyle.SubContent}>
