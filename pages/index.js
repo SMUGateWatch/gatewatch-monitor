@@ -3,10 +3,12 @@ import localStyle from '../styles/index.module.sass'
 import Layout from '../components/layout'
 import {useState, useEffect} from 'react'
 import socket from '../utils/socket.js'
+import useSWR from 'swr'
 
-export default function Index(){    
-    const [eData, setEntranceData] = useState({})
-    const [exData, setExitData] = useState({})
+const fetcher = url => fetch(url).then(r => r.json())
+
+export default function Monitoring(){
+    const { data, error } = useSWR(`${API_ENDPOINT}/monitor/latestTraffic`,fetcher)
     
     return(
     <div>

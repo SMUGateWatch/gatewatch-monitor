@@ -15,7 +15,8 @@
     "next": "^9.5.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "sass": "latest",
     "socket.io-client": "^2.3.1",
-    "sass": "latest"
+    "swr": "^0.3.9"
   }
 }
